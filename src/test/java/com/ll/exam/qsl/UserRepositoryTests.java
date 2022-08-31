@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.transaction.Transactional;
@@ -182,6 +183,7 @@ class UserRepositoryTests {
 
     @Test
     @DisplayName("검색, Page 리턴, id DESC, pageSize=1, page=0")
+    @Rollback(false)
     void t10() {
         SiteUser u2 = userRepository.getQslUser(2L);
 
