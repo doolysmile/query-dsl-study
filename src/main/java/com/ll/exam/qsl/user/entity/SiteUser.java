@@ -26,11 +26,11 @@ public class SiteUser {
     @Column(unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "siteUser", cascade = CascadeType.ALL)
     @Builder.Default
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<InterestKeyword> interestKeywords = new HashSet<>();
 
     public void addInterestKeywordContent(String keywordContent) {
-        interestKeywords.add(InterestKeyword.builder().content(keywordContent).build());
+        interestKeywords.add(new InterestKeyword(keywordContent));
     }
 }
