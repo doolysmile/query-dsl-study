@@ -1,9 +1,9 @@
 package com.ll.exam.qsl.interestKeyword.entity;
 
-import com.ll.exam.qsl.user.entity.SiteUser;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 @Setter
@@ -11,11 +11,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class InterestKeyword {
     @Id
+    @EqualsAndHashCode.Include
     private String content;
-
-    @ManyToOne
-    @JoinColumn(name = "siteUser")
-    private SiteUser siteUser;
 }
