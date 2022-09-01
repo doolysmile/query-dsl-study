@@ -39,10 +39,12 @@ public class SiteUser {
     }
 
 
-    public void follow(SiteUser followee){
-//        if(!followee.equals(this) {
-            followee.getFollowers().add(this);
-//        }
+    public void follow(SiteUser following){
+        if (this == following) return;
+        if (following == null) return;
+        if (this.getId() == following.getId()) return;
+        following.getFollowers().add(this);
+
     }
 
 }

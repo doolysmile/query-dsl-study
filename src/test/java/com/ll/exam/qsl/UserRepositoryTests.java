@@ -240,11 +240,13 @@ class UserRepositoryTests {
     }
 
     @Test
-    @DisplayName("test한다")
+    @DisplayName("본인이 본인을 follow 할 수 없다.")
     @Rollback(false)
-    void test(){
+    void t14() {
         SiteUser u1 = userRepository.getQslUser(1L);
 
-        u1.setEmail("test");
+        u1.follow(u1);
+
+        assertThat(u1.getFollowers().size()).isEqualTo(0);
     }
 }
