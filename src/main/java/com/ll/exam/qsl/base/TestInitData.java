@@ -29,7 +29,7 @@ public class TestInitData {
                     .email("user2@test.com")
                     .build();
 
-            userRepository.saveAll(Arrays.asList(u1, u2));
+            userRepository.saveAll(Arrays.asList(u1, u2));  // persist
 
             u1.addInterestKeywordContent("축구");
             u1.addInterestKeywordContent("농구");
@@ -38,7 +38,7 @@ public class TestInitData {
             u2.addInterestKeywordContent("마라톤");
             u2.addInterestKeywordContent("농구");
 
-            userRepository.saveAll(Arrays.asList(u1, u2));
+            userRepository.saveAll(Arrays.asList(u1, u2));  // merge
         };
     }
 }
