@@ -229,12 +229,22 @@ class UserRepositoryTests {
 
     @Test
     @DisplayName("u2=아이돌, u1=팬 u1은 u2의 팔로워 이다.")
+    @Rollback(false)
     void t13() {
         SiteUser u1 = userRepository.getQslUser(1L);
         SiteUser u2 = userRepository.getQslUser(2L);
 
-        u2.addFollower(u1);
+        u1.follow(u2);
 
         userRepository.save(u2);
+    }
+
+    @Test
+    @DisplayName("test한다")
+    @Rollback(false)
+    void test(){
+        SiteUser u1 = userRepository.getQslUser(1L);
+
+        u1.setEmail("test");
     }
 }
